@@ -1,6 +1,7 @@
 import React, { useState,useLayoutEffect } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import styles from './styles/styles';
 
 export default function DetailScreen({navigation}) {
     const [todo, setTodo] = useState('');
@@ -8,34 +9,25 @@ export default function DetailScreen({navigation}) {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerStyle: {
-                backgroundColor: '#f0f0f0'
+                backgroundColor: 'black'
             },
             headerRight: () => (
                 <AntDesign style={styles.navButton} name="save" size={24} color="black"
-                onPress={() => navigation.navigate('Home',{todo: todo})} />
+                onPress={() => handleSaveClick(todo)} />
             ),
         })
     }), [navigation];
+
+    function handleSaveClick(item) {
+        console.log(item);
+        navigation.navigate('Home',{todo: item})
+    }
+
     return (
         
         <View style={styles.container}>
-            <TextInput style={styles.newTask} onChangeText={text => setTodo(text)}
-            value={todo} placeholder="Add new task" />
+            <TextInput autoFocus={true} style={styles.newTask} onChangeText={text => setTodo(text)}
+            value={todo} placeholder="Add new item" />
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignContent: 'center',
-        paddingLeft: 10,
-        paddingTop: 20,
-    },
-    navButton: {
-        marginRight: 5,
-        fontSize: 24,
-        padding: 4,
-    },
-});

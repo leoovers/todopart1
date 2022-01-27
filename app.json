@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "todopart1",
-    "slug": "todopart1",
+    "name": "Kauppalista",
+    "slug": "Kauppalista",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,9 +21,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.DefaultCompany.todo_list"
     },
     "web": {
       "favicon": "./assets/favicon.png"
